@@ -5,6 +5,11 @@ const { BOT_TOKEN, API_KEY } = require('./local_info');
 
 const bot = new Telegraf(BOT_TOKEN);
 
+bot.start(ctx => ctx.reply(`Hi dear ${ctx.message.chat["first_name"]}, welcome
+Please send a photo of the desired text.
+
+http://t.me/${ctx.botInfo["username"]}`))
+
 bot.on('photo', async (ctx) => {
     try {
         const photo = ctx.message.photo.pop();
